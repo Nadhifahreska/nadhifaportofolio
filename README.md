@@ -1,2 +1,2 @@
-# nadhifaportofolio
-System/Data/Business Analyst Portofolio
+# Nadhifah Nur Annisa Reska's Portofolio!
+I am a Business Analyst and System Analyst with a bachelor's degree in Computer Science at Universitas Negeri Semarang (UNNES). I am passionate about using technology to create innovative and user-friendly solutions that align with business goals. I possess advanced skills in Tableau for data visualization. These skills enable me to analyze and present data clearly to inform decision-making. I am eager to apply these experiences and deepen my knowledge in roles such as Business Analyst, Data Analyst, and Researcher, contributing to business solutions and strategic decision-making.
