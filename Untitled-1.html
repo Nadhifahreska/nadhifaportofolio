@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadhifah Nur Annisa Reska | Business & System Analyst</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS STYLING --- */
+        :root {
+            --bg-color: #1a1a2e;
+            --primary-color: #16213e;
+            --secondary-color: #0f3460;
+            --accent-color: #e94560;
+            --text-color: #dcdcdc;
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(26, 26, 46, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        .logo a span { color: var(--accent-color); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 400;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after, .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--header-height);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .hero-text {
+            flex-basis: 60%;
+        }
+        .hero-text h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin: 0.5rem 0;
+        }
+        .hero-text h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 2rem;
+            background-color: var(--accent-color);
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-text p {
+            margin: 1.5rem 0;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+        
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .hero-image {
+            flex-basis: 40%;
+            text-align: center;
+        }
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--secondary-color);
+            box-shadow: 0 0 30px rgba(233, 69, 96, 0.4);
+        }
+
+        /* --- General Section Styling --- */
+        section {
+            padding: 6rem 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* --- About Section --- */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        .about-image {
+            flex-basis: 35%;
+        }
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .about-text {
+            flex-basis: 65%;
+        }
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #fff;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+        .skill-item {
+            background-color: var(--primary-color);
+            padding: 2rem 1rem;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .skill-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .skill-item i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* --- Projects Section --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .project-card {
+            background: var(--primary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .project-card-content {
+            padding: 1.5rem;
+        }
+        .project-card-content h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Contact Section --- */
+        #contact .container {
+            text-align: center;
+            max-width: 600px;
+        }
+        #contact p {
+            margin-bottom: 2rem;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: var(--primary-color);
+            margin-top: 4rem;
+        }
+
+        /* --- Animations on Scroll --- */
+        .reveal {
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simple hide for mobile, can be replaced with a hamburger menu */
+            }
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text h1 { font-size: 2.5rem; }
+            .hero-text h2 { font-size: 1.5rem; }
+            .social-icons { margin-top: 2rem; }
+            .about-content { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav class="container">
+            <div class="logo">
+                <a href="#">Nadhifah<span>.</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Keahlian</a></li>
+                <li><a href="#projects">Proyek</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h3>Halo, saya Nadhifah Nur Annisa Reska</h3>
+                    <h1>Business & System Analyst</h1>
+                    <h2><span id="typing-text"></span><span class="typing-cursor"></span></h2>
+                    <p>Mahasiswa tingkat akhir dengan semangat tinggi untuk menjembatani kebutuhan bisnis dan teknis melalui solusi teknologi yang berdampak.</p>
+                    <div class="social-icons">
+                        <a href="mailto:nadhifa@students.unnes.ac.id" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://linkedin.com/in/nadhifah-nur-annisa-reska/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://storage.googleapis.com/map-hiring-prod.appspot.com/imported-files/98f3e2714be84705a2e55ef9c0d165f1/image.png" alt="Foto Nadhifah Nur Annisa Reska">
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container reveal">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Menganalisis, Merancang, dan Mengimplementasi Solusi</h3>
+                    <p>Sebagai seorang yang berlatar belakang Ilmu Komputer, saya memiliki hasrat untuk menerjemahkan masalah bisnis yang kompleks menjadi spesifikasi teknis yang jelas dan dapat dieksekusi. Saya memiliki pengalaman dalam menganalisis proses, merancang alur sistem, dan memastikan produk akhir sesuai dengan tujuan strategis perusahaan.</p>
+                    <p>Saya terbiasa bekerja dalam lingkungan yang dinamis, berkolaborasi dengan berbagai tim, mulai dari developer hingga stakeholder, untuk memastikan kelancaran proyek dari awal hingga akhir. Keahlian saya dalam visualisasi data menggunakan Tableau membantu saya menyajikan wawasan yang kompleks menjadi laporan yang mudah dipahami.</p>
+                    <a href="Juli 2025_CV ATS_Nadhifah Nur Annisa Reska_Universitas Negeri Semarang.pdf" class="cta-button" download>Unduh CV Saya</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="container reveal">
+            <h2 class="section-title">Keahlian Utama</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Analisis Bisnis</h4>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-sitemap"></i>
+                    <h4>Desain Sistem</h4>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-file-alt"></i>
+                    <h4>BRD & User Story</h4>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-tasks"></i>
+                    <h4>Metodologi Agile</h4>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-database"></i>
+                    <h4>SQL</h4>
+                </div>
+                <div class="skill-item">
+                    <i class="fab fa-python"></i>
+                    <h4>Python</h4>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <h4>Tableau</h4>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-users"></i>
+                    <h4>Manajemen Proyek</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="container reveal">
+            <h2 class="section-title">Proyek Unggulan</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <h3>Analisis & Desain Sistem Odoo</h3>
+                        <p>Merancang dan mengelola 50+ test case, melakukan pengujian end-to-end, dan mengembangkan panduan pengguna untuk situs Odoo HRIS & I-Hub yang digunakan oleh 3000+ user.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <h3>Business Plan: IslamicXplore</h3>
+                        <p>Mengembangkan rencana bisnis komprehensif untuk platform e-learning, mencakup analisis SWOT, proyeksi keuangan, dan roadmap pengembangan. Meraih Juara 2 Krenova.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <h3>Riset Klasifikasi Data Imunoterapi</h3>
+                        <p>Mempublikasikan riset yang membandingkan metode Machine Learning (KNN, Naive Bayes, Decision Tree) untuk akurasi klasifikasi, di mana Naive Bayes menjadi model terbaik.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card-content">
+                        <h3>Dokumentasi Website Rent Car</h3>
+                        <p>Membuat dokumentasi sistem lengkap, termasuk Business Requirement Document (BRD) dan Entity-Relationship Diagram (ERD), untuk proyek website penyewaan mobil.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="container reveal">
+            <h2 class="section-title">Mari Terhubung</h2>
+            <p>Saya selalu terbuka untuk diskusi mengenai proyek menarik atau peluang karir. Jangan ragu untuk menghubungi saya.</p>
+            <a href="mailto:nadhifa@students.unnes.ac.id" class="cta-button">Kirim Email</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nadhifah Nur Annisa Reska. Didesain dengan penuh semangat.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- JAVASCRIPT ---
+
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const words = ["Data-Driven Solutions", "System Design", "Process Improvement"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typingText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                if (charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                }
+            } else {
+                typingText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+                if (charIndex === currentWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, 2000); // Pause at end of word
+                    return;
+                }
+            }
+            setTimeout(type, isDeleting ? 100 : 200);
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        // Scroll animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - (header.offsetHeight + 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').substring(1) === current) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>
